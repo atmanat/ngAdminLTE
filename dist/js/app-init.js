@@ -45,10 +45,6 @@ $.AdminLTE.options = {
   //sidebar treeview slide up/down. This options accepts an integer as milliseconds,
   //'fast', 'normal', or 'slow'
   animationSpeed: 500,
-  //Sidebar push menu toggle button selector
-  sidebarToggleSelector: "[data-toggle='offcanvas']",
-  //Activate sidebar push menu
-  sidebarPushMenu: true,
   //Activate sidebar slimscroll if the fixed layout is set (requires SlimScroll Plugin)
   sidebarSlimScroll: true,
   //Enable sidebar expand on hover effect for sidebar mini
@@ -65,13 +61,7 @@ $.AdminLTE.options = {
   //choose to enable the plugin, make sure you load the script
   //before AdminLTE's app.js
   enableFastclick: true,
-  //Control Sidebar Options
-  enableControlSidebar: true,
   controlSidebarOptions: {
-    //Which button should trigger the open/close event
-    toggleBtnSelector: "[data-toggle='control-sidebar']",
-    //The sidebar selector
-    selector: ".control-sidebar",
     //Enable slide over content
     slide: true
   },

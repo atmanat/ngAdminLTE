@@ -4,11 +4,11 @@
 
 	angular
 		.module('adminlte')
-		.factory('altControlSidebar', altControlSidebarFactory)
+		.factory('alControlSidebarService', alControlSidebarServiceFactory)
 	;
 
-	altControlSidebarFactory.$inject = [];
-	function altControlSidebarFactory() {
+	alControlSidebarServiceFactory.$inject = ['alOptions'];
+	function alControlSidebarServiceFactory(alOptions) {
 
 		var _this = this;
 
@@ -28,15 +28,11 @@
 			_fixForContent: _this._fixForContent
 		};
 
-		function activate() {
+		function activate(sidebar, btn) {
 			//Get the object
 			var _this = this;
 			//Update options
-			var o = $.AdminLTE.options.controlSidebarOptions;
-			//Get the sidebar
-			var sidebar = $(o.selector);
-			//The toggle button
-			var btn = $(o.toggleBtnSelector);
+			var o = alOptions.controlSidebarOptions;
 
 			//Listen to the click event
 			btn.on('click', function (e) {

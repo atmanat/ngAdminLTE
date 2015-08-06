@@ -7,8 +7,8 @@
 		.factory('altLayout', altLayoutFactory)
 	;
 
-	altLayoutFactory.$inject = [];
-	function altLayoutFactory() {
+	altLayoutFactory.$inject = ['alOptions'];
+	function altLayoutFactory(alOptions) {
 
 		var _this = this;
 
@@ -52,7 +52,7 @@
 				}
 
 				//Fix for the control sidebar height
-				var controlSidebar = $($.AdminLTE.options.controlSidebarOptions.selector);
+				var controlSidebar = $(alOptions.controlSidebarOptions.selector);
 				if (typeof controlSidebar !== "undefined") {
 					if (controlSidebar.height() > postSetWidth)
 					$(".content-wrapper, .right-side").css('min-height', controlSidebar.height());
@@ -71,7 +71,7 @@
 				console.error("Error: the fixed layout requires the slimscroll plugin!");
 			}
 			//Enable slimscroll for fixed layout
-			if ($.AdminLTE.options.sidebarSlimScroll) {
+			if (alOptions.sidebarSlimScroll) {
 				if (typeof $.fn.slimScroll != 'undefined') {
 					//Destroy if it exists
 					$(".sidebar").slimScroll({destroy: true}).height("auto");

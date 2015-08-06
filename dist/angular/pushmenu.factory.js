@@ -4,11 +4,11 @@
 
 	angular
 		.module('adminlte')
-		.factory('altPushMenu', altPushMenuFactory)
+		.factory('alPushMenuService', alPushMenuServiceFactory)
 	;
 
-	altPushMenuFactory.$inject = [];
-	function altPushMenuFactory() {
+	alPushMenuServiceFactory.$inject = ['alOptions'];
+	function alPushMenuServiceFactory(alOptions) {
 
 		var _this = this;
 
@@ -26,7 +26,7 @@
 
 		function activate(toggleBtn) {
 			//Get the screen sizes
-			var screenSizes = $.AdminLTE.options.screenSizes;
+			var screenSizes = alOptions.screenSizes;
 
 			//Enable sidebar toggle
 			$(toggleBtn).on('click', function (e) {
@@ -58,14 +58,14 @@
 			});
 
 			//Enable expand on hover for sidebar mini
-			if ($.AdminLTE.options.sidebarExpandOnHover || ($('body').hasClass('fixed') && $('body').hasClass('sidebar-mini'))) {
+			if (alOptions.sidebarExpandOnHover || ($('body').hasClass('fixed') && $('body').hasClass('sidebar-mini'))) {
 				this.expandOnHover();
 			}
 		}
 
 		function expandOnHover() {
 			var _this = this;
-			var screenWidth = $.AdminLTE.options.screenSizes.sm - 1;
+			var screenWidth = alOptions.screenSizes.sm - 1;
 			//Expand sidebar on hover
 			$('.main-sidebar').hover(function () {
 				if ($('body').hasClass('sidebar-mini') && $("body").hasClass('sidebar-collapse') && $(window).width() > screenWidth) {

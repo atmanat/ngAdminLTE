@@ -4,16 +4,16 @@
 
 	angular
 		.module('adminlte')
-		.directive('altSidebar', sidebar)
+		.directive('sidebar', sidebar)
 	;
 
-	sidebar.$inject = ['altLayout'];
-	function sidebar(altLayout) {
+	sidebar.$inject = ['altLayout', 'alOptions'];
+	function sidebar(altLayout, alOptions) {
 		return {
-			restrict: 'A',
+			restrict: 'C',
 			link: function(scope, element, attributes, controller) {
 				//Enable sidebar tree view controls
-				var animationSpeed = $.AdminLTE.options.animationSpeed;
+				var animationSpeed = alOptions.animationSpeed;
 				$("li a", $(element)).on('click', function (e) {
 					//Get the clicked link and the next element
 					var $this = $(this);

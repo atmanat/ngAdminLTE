@@ -3,31 +3,23 @@
 	'use strict';
 
 	angular
-		.module('adminlte', [])
+		.module('adminlte', ['ui.router'])
 	;
 
 	angular
 		.module('adminlte')
 		.run(run)
+		.config(config)
+		.controller('DemoController', DemoController)
 	;
 	
-	run.$inject = ['altLayout', 'altControlSidebar', 'altPushMenu'];
-	function run(altLayout, altControlSidebar, altPushMenu) {
+	run.$inject = ['alOptions', 'altLayout'];
+	function run(alOptions, altLayout) {
 		//Easy access to options
-		var o = $.AdminLTE.options;
+		var o = alOptions;
 
 		//Activate the layout maker
 		altLayout.activate();
-
-		//Enable control sidebar
-		if (o.enableControlSidebar) {
-			altControlSidebar.activate();
-		}
-
-		//Activate sidebar push menu
-		if (o.sidebarPushMenu) {
-			altPushMenu.activate(o.sidebarToggleSelector);
-		}
 
 		//Activate Bootstrap tooltip
 		if (o.enableBSToppltip) {
@@ -35,6 +27,27 @@
 				selector: o.BSTooltipSelector
 			});
 		}
+
+	}
+
+	config.$inject = ['$stateProvider', '$urlRouterProvider'];
+	function config($stateProvider, $urlRouterProvider) {
+		$urlRouterProvider
+			.otherwise(function($injector, $location) {
+				var $state = $injector.get('$state');
+				$state.go('home');
+			})
+		;
+		$stateProvider
+			.state('secured', {
+				abstract: true,
+				template: '<ui-view/>'
+			})
+		;
+	}
+
+	DemoController.$inject = [];
+	function DemoController() {
 
 	}
 
