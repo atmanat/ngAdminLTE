@@ -84,8 +84,8 @@
         </ul>
         <div class="tab-content no-padding">
           <!-- Morris chart - Sales -->
-          <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-          <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
+          <div class="chart tab-pane active" id="revenue-chart" data-al-morris-area-config="homeController.revenueChartConfig" style="position: relative; height: 300px;"></div>
+          <div class="chart tab-pane" id="sales-chart" data-al-morris-donut-config="homeController.salesChartConfig" style="position: relative; height: 300px;"></div>
         </div>
       </div><!-- /.nav-tabs-custom -->
 
@@ -101,7 +101,7 @@
             </div>
           </div>
         </div>
-        <div class="box-body chat" id="chat-box">
+        <div class="box-body chat" id="chat-box" data-al-slimscroll="homeController.chatSlimscrollConfig">
           <!-- chat item -->
           <div class="item">
             <img src="dist/img/user4-128x128.jpg" alt="user image" class="online" />
@@ -177,7 +177,7 @@
           </div>
         </div><!-- /.box-header -->
         <div class="box-body">
-          <ul class="todo-list" al-sortable-config="homeController.todoListSortableConfig">
+          <ul class="todo-list" data-al-todo-list="{check: homeController.onCheck, uncheck: homeController.onUncheck}" al-sortable-config="homeController.todoListSortableConfig">
             <li>
               <!-- drag handle -->
               <span class="handle">
@@ -347,7 +347,7 @@
           </div>
         </div>
         <div class="box-body border-radius-none">
-          <div class="chart" id="line-chart" style="height: 250px;"></div>
+          <div class="chart" id="line-chart" data-al-morris-line-config="homeController.lineChartConfig" style="height: 250px;"></div>
         </div><!-- /.box-body -->
         <div class="box-footer no-border">
           <div class="row">
@@ -390,7 +390,7 @@
         </div><!-- /.box-header -->
         <div class="box-body no-padding">
           <!--The calendar -->
-          <div id="calendar" style="width: 100%"></div>
+          <div id="calendar" data-al-calendar style="width: 100%"></div>
         </div><!-- /.box-body -->
         <div class="box-footer text-black">
           <div class="row">
